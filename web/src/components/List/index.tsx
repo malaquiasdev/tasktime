@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.scss";
 
 export default function List() {
   const tasks = [
@@ -13,12 +14,12 @@ export default function List() {
     { task: "Learn Something", time: "04:00:00" },
   ];
   return (
-    <aside>
-      <h3>My List</h3>
+    <aside className="list">
+      <h2>My List</h2>
       <ul>
         {tasks.map((task, index) => {
           return (
-            <li key={index}>
+            <li key={index} className="item">
               <h3>{task.task}</h3>
               <span>{task.time}</span>
             </li>
