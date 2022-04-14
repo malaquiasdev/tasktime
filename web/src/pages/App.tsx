@@ -25,7 +25,7 @@ function App() {
     <div className={style.AppStyle}>
       <Form setItem={setItem} />
       <List items={items} selectTaskOnClick={selectTask} />
-      <Timer />
+      <Timer item={selected} />
     </div>
   );
 }
