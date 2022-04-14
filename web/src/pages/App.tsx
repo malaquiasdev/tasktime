@@ -6,11 +6,25 @@ import style from "./app.module.scss";
 import ITask from "../types/itask";
 
 function App() {
-  let [items, setItem] = useState<ITask[] | []>([]);
+  const [items, setItem] = useState<ITask[] | []>([]);
+  const [selected, setSelected] = useState<ITask>();
+
+  function selectTask(task: ITask) {
+    setSelected(task);
+    setItem(
+      items.map((item) => {
+        if (item.id === task.id) {
+          return { ...item, selected: true };
+        }
+        return { ...item, selected: false };
+      })
+    );
+  }
+
   return (
     <div className={style.AppStyle}>
       <Form setItem={setItem} />
-      <List items={items} />
+      <List items={items} selectTaskOnClick={selectTask} />
       <Timer />
     </div>
   );
