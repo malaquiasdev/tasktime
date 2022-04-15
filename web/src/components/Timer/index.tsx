@@ -20,9 +20,8 @@ export default function Timer({ item }: Props) {
   return (
     <div className={style.timer}>
       <p className={style.title}>Timer</p>
-      Tempo: {time}
       <div className={style.timerWrapper}>
-        <Clock></Clock>
+        <Clock seconds={time}></Clock>
       </div>
       <Button>Start</Button>
     </div>
