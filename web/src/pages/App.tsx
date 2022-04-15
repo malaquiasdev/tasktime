@@ -21,11 +21,25 @@ function App() {
     );
   }
 
+  function completeTask() {
+    if (selected) {
+      setItem(
+        items.map((item) => {
+          if (item.id === selected.id) {
+            return { ...item, completed: true };
+          }
+          return item;
+        })
+      );
+      setSelected(undefined);
+    }
+  }
+
   return (
     <div className={style.AppStyle}>
       <Form setItem={setItem} />
       <List items={items} selectTaskOnClick={selectTask} />
-      <Timer item={selected} />
+      <Timer item={selected} completeTask={completeTask} />
     </div>
   );
 }
